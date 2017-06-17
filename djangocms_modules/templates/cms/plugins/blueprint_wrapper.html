@@ -1,0 +1,7 @@
+{% load cms_tags %}
+
+{% for plugin in instance.child_plugin_instances %}
+    <div class="cms-blueprint-plugin-wrapper">
+        {% render_plugin plugin %}
+    </div>
+{% endfor %}

@@ -1,0 +1,4 @@
+include LICENSE.txt
+include README.rst
+recursive-include djangocms_modules/templates *
+recursive-exclude * *.py[co] .sass-cache

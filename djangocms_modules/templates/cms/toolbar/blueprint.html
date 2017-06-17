@@ -1,0 +1,58 @@
+{% load i18n static thumbnail %}
+
+{% if request.toolbar.edit_mode or request.toolbar.build_mode %}
+{% with slot="blueprint" %}
+
+{% regroup local_toolbar.get_blueprint_plugins by category as category_list %}
+
+<div class="cms-blueprint js-cms-blueprint" data-state="{% if opened %}open{% else %}closed{% endif %}">
+    <div class="cms-blueprint-trigger js-cms-blueprint-trigger"><span>{% trans "Blueprint mode" %}</span></div>
+    <div class="cms-blueprint-container js-cms-blueprint-container">
+        <div class="cms-blueprint-inner">
+            <div class="cms-blueprint-intro">
+                <h2>{% trans "Content blocks" %}</h2>
+                {% if local_toolbar.get_blueprint_plugins %}
+                    <p>{% blocktrans %}To add content drag and drop an item onto the page.{% endblocktrans %}</p>
+                {% else %}
+                    <p>{% blocktrans %}To create content blocks switch to structure mode and select the "Create content block" item in the placeholder menu.{% endblocktrans %}</p>
+                {% endif %}
+            </div>
+            {% for plugin_d in category_list %}
+                <div class="cms-blueprint-accordion-trigger">
+                {% if plugin_d.grouper %}
+                    <h3>{{plugin_d.grouper}} <span>({{ plugin_d.list|length }})</span></h3>
+                {% else %}
+                    <h3>{% trans "No category" %}</h3>
+                {% endif %}
+                </div>
+                <ul class="cms-blueprint-templates cms-blueprint-accordion-container" hidden="hidden">
+                    {% for plugin in plugin_d.list %}
+                        <li data-id="{{ plugin.pk }}">
+                            {% if plugin.image %}
+                                {% thumbnail plugin.image '200x90' crop=True upscale=True as blueprint_img %}
+                                <img src="{{ blueprint_img.url }}" alt="" title="{{ plugin.name }}" />
+                            {% else %}
+                                <span><strong>{% if plugin.name %}{{ plugin.name }}{% else %}{% trans "Content" %}{% endif %}</strong></span>
+                            {% endif %}
+                            {% if perms.aldryn_blueprint %}
+                                <div class="cms-blueprint-menu">
+                                    {% if perms.aldryn_blueprint.change_blueprintpluginmodel %}
+                                        <a href="#" class="cms-blueprint-edit">{% trans "edit" %}</a>
+                                    {% endif %}
+                                    {% if perms.aldryn_blueprint.delete_blueprintpluginmodel  %}
+                                        <a href="#" class="cms-blueprint-delete">{% trans "delete" %}</a>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        </li>
+                    {% empty %}
+                        <li class="empty">{% trans "no blueprint available" %}</li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+            <div class="cms-blueprint-loader hidden"><span>{% trans "loading..." %}</span></div>
+        </div>
+    </div>
+</div>
+{% endwith %}
+{% endif %}

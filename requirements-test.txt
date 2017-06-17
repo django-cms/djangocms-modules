@@ -1,0 +1,12 @@
+-r requirements.txt
+coverage
+coveralls
+flake8
+djangocms-helper>=0.7
+djangocms-text-ckeditor>=2.4
+djangocms-picture
+djangocms-grid
+djangocms-link
+tox>=1.9
+wheel
+django-hvad
