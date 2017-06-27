@@ -1,0 +1,9 @@
+{% extends "djangocms_modules/base.html" %}
+{% load cms_tags djangocms_modules_tags %}
+
+{% block modules_content %}
+    {% get_default_language as default_language %}
+    {% for category in categories %}
+        {% render_placeholder category.modules_placeholder language default_language %}
+    {% endfor %}
+{% endblock modules_content %}
