@@ -28,7 +28,6 @@ setup(
     platforms=['OS Independent'],
     classifiers=CLASSIFIERS,
     install_requires=[
-        'django-cms>=3.5.0',
         'django-parler>=1.2',
     ],
     packages=find_packages(),
