@@ -23,6 +23,9 @@ class ModulesToolbar(CMSToolbar):
 
     class Media:
         js = ('djangocms_modules/js/dist/bundle.modules.min.js',)
+        css = {
+            'all': ('djangocms_modules/css/modules.css',)
+        }
 
     @staticmethod
     def get_insert_position(admin_menu, item_name):

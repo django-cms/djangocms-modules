@@ -1,52 +1,79 @@
-/*!
- * @author:    Divio AG
- * @copyright: http://www.divio.ch
- */
-
-'use strict';
-
 // #####################################################################################################################
 // #IMPORTS#
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-var jshint = require('gulp-jshint');
-var jscs = require('gulp-jscs');
+var plumber = require('gulp-plumber');
+var fs = require('fs');
+var gulpif = require('gulp-if');
+var sourcemaps = require('gulp-sourcemaps');
+// var eslint = require('gulp-eslint');
+var webpack = require('webpack');
+
+var argv = require('minimist')(process.argv.slice(2)); // eslint-disable-line
 
 // #####################################################################################################################
 // #SETTINGS#
-var paths = {
-    'js': './aldryn_blueprint/static/aldryn_blueprint/js/'
+var options = {
+    debug: argv.debug
+};
+var PROJECT_ROOT = __dirname + '/djangocms_modules/static/djangocms_modules';
+var PROJECT_PATH = {
+    js: PROJECT_ROOT + '/js',
+    sass: PROJECT_ROOT + '/sass',
+    css: PROJECT_ROOT + '/css',
 };
 
-var patterns = {
-    'js': [
-        paths.js + '*.js',
-        paths.js + '**/*.js',
-        paths.js + '**/**/*.js',
-        '!' + paths.js + '*.min.js',
-        '!' + paths.js + '**/*.min.js'
+var PROJECT_PATTERNS = {
+    js: [
+        PROJECT_PATH.js + '/*.js',
+        '!' + PROJECT_PATH.js + '/dist/*.js'
+    ],
+    sass: [
+        PROJECT_PATH.sass + '/**/*.{scss,sass}'
+    ],
+    icons: [
+        PROJECT_PATH.icons + '/src/*.svg'
     ]
 };
-patterns.jshint = patterns.js.concat(['!' + paths.js + 'libs/*.js', './gulpfile.js']);
 
+// gulp.task('lint', ['lint:javascript']);
+// gulp.task('lint:javascript', function () {
+//     // DOCS: http://eslint.org
+//     return gulp.src(PROJECT_PATTERNS.js)
+//         .pipe(gulpif(!process.env.CI, plumber()))
+//         .pipe(eslint())
+//         .pipe(eslint.format())
+//         .pipe(eslint.failAfterError())
+//         .pipe(gulpif(!process.env.CI, plumber.stop()));
+// });
+//
+var webpackBundle = function (opts) {
+    var webpackOptions = opts || {};
 
-// #####################################################################################################################
-// #LINTING#
-gulp.task('lint', function () {
-    gulp.src(patterns.jshint)
-        .pipe(jshint())
-        .pipe(jscs())
-        .on('error', function (error) {
-            gutil.log('\n' + error.message);
-        })
-        .pipe(jshint.reporter('jshint-stylish'));
-});
+    webpackOptions.PROJECT_PATH = PROJECT_PATH;
+    webpackOptions.debug = options.debug;
 
+    return function (done) {
+        var config = require('./webpack.config')(webpackOptions);
 
-// #####################################################################################################################
-// #COMMANDS#
+        webpack(config, function (err, stats) {
+            if (err) {
+                throw new gutil.PluginError('webpack', err);
+            }
+            gutil.log('[webpack]', stats.toString({ maxModules: Infinity, colors: true, optimizationBailout: true }));
+            if (typeof done !== 'undefined' && (!opts || !opts.watch)) {
+                done();
+            }
+        });
+    };
+};
+
+gulp.task('bundle:watch', webpackBundle({ watch: true }));
+gulp.task('bundle', webpackBundle());
+
 gulp.task('watch', function () {
-    gulp.watch(patterns.jshint, ['lint']);
+    gulp.start('bundle:watch');
+    // gulp.watch(PROJECT_PATTERNS.js, ['lint']);
 });
 
-gulp.task('default', ['lint']);
+gulp.task('default', ['watch']);
