@@ -84,7 +84,10 @@ class Module(CMSPluginBase):
             PluginMenuItem(
                 _("Create Module"),
                 endpoint,
-                action='modal'
+                action='modal',
+                attributes={
+                    'icon': 'modules'
+                }
             )
         ]
 
@@ -99,7 +102,10 @@ class Module(CMSPluginBase):
             PluginMenuItem(
                 _("Create Module"),
                 endpoint,
-                action='modal'
+                action='modal',
+                attributes={
+                    'icon': 'modules'
+                }
             )
         ]
 
