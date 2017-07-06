@@ -19,7 +19,7 @@ CLASSIFIERS = [
 setup(
     author='Divio AG',
     author_email='info@divio.ch',
-    name='djangocms_modules',
+    name='djangocms-modules',
     version=djangocms_modules.__version__,
     description='Adds copy/paste capabilities to groups of plugins',
     long_description=open(os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
@@ -27,10 +27,6 @@ setup(
     license='BSD License',
     platforms=['OS Independent'],
     classifiers=CLASSIFIERS,
-    install_requires=[
-        'django-parler>=1.2',
-    ],
     packages=find_packages(),
     include_package_data=True,
-    zip_safe=False,
 )
