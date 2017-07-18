@@ -3,6 +3,7 @@ import copy
 import json
 
 from django.conf import settings
+from django.core.exceptions import PermissionDenied
 from django.conf.urls import url
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseForbidden, HttpResponseBadRequest, HttpResponse
@@ -132,6 +133,9 @@ class Module(CMSPluginBase):
 
     @classmethod
     def create_module_view(cls, request):
+        if not request.user.is_staff:
+            raise PermissionDenied
+
         new_form = NewModuleForm(request.GET or None)
 
         if new_form.is_valid():
@@ -160,15 +164,23 @@ class Module(CMSPluginBase):
 
         plugins = create_form.get_plugins()
 
-        if plugins:
-            name = create_form.cleaned_data['name']
-            category = create_form.cleaned_data['category']
-            cls.create_module_plugin(name=name, category=category, plugins=plugins)
-            return HttpResponse('<div><div class="messagelist"><div class="success"></div></div></div>')
-        return HttpResponseBadRequest('Plugins are required to create a module')
+        if not plugins:
+            return HttpResponseBadRequest('Plugins are required to create a module')
+
+        name = create_form.cleaned_data['name']
+        category = create_form.cleaned_data['category']
+
+        if not category.modules.has_add_plugins_permission(request.user, plugins):
+            raise PermissionDenied
+
+        cls.create_module_plugin(name=name, category=category, plugins=plugins)
+        return HttpResponse('<div><div class="messagelist"><div class="success"></div></div></div>')
 
     @classmethod
     def add_module_view(cls, request, module_id):
+        if not request.user.is_staff:
+            raise PermissionDenied
+
         module_plugin = get_object_or_404(cls.model, pk=module_id)
 
         if request.method == 'GET':
@@ -277,6 +289,9 @@ class Module(CMSPluginBase):
 
     @classmethod
     def modules_list_view(cls, request):
+        if not request.user.is_staff:
+            raise PermissionDenied
+
         view = ListView.as_view(
             model=Category,
             context_object_name='categories',
