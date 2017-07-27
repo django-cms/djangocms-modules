@@ -11,6 +11,30 @@ div.cms .cms-structure .cms-submenu-item a[data-icon=modules]:before {
     line-height: 16px !important;
     min-height: 16px !important;
 }
+.cms-modules-icon {
+    display: block !important;
+    width: 16px !important;
+    height: 16px !important;
+    background-image: url('../img/icon.png') !important;
+    background-size: 16px 32px !important;
+    text-indent: -9999px !important;
+}
+div.cms .cms-plugin-picker .cms-submenu-item span.cms-submenu-item-title-module {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+
+}
 div.cms .cms-structure .cms-submenu-item a[data-icon=modules]:hover:before,
 div.cms .cms-structure .cms-submenu-item a[data-icon=modules]:focus:before {
     background-position: 0 -16px;
