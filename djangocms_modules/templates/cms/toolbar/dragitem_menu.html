@@ -2,7 +2,7 @@
 {% get_module_categories as module_categories %}
 
 {% for category in module_categories %}
-    <div class="cms-submenu-item cms-submenu-item-title"><span>{% trans "Modules:" %} {{ category.name|capfirst }}</span></div>
+    <div class="cms-submenu-item cms-submenu-item-title"><span class="cms-submenu-item-title-module"><ins class="cms-modules-icon">{% trans "Modules:" %}</ins> {{ category.name|capfirst }}</span></div>
     {% for module in category.get_non_empty_modules %}
         <div class="cms-submenu-item"><a data-rel="add" href="{{ module.plugin_type }}" data-url="{% get_module_add_url module %}">{{ module.module_name }}</a></div>
     {% endfor %}
