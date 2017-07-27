@@ -18,3 +18,32 @@ div.cms .cms-structure .cms-submenu-item a[data-icon=modules]:focus:before {
 div.cms .cms-structure.cms-structure-condensed .cms-submenu-item a[data-icon=modules]:before {
     top: 12px !important;
 }
+
+.cms-modules-page-heading-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.cms-modules-page-heading .cms-modules-page-heading-link {
+    position: absolute;
+    margin-left: -30px;
+    width: 100px;
+    display: none;
+}
+.cms-modules-page-heading:hover .cms-modules-page-heading-link {
+    display: block;
+    text-decoration: none;
+}
+.cms-modules-page-heading:before {
+    display: block;
+    content: " ";
+    margin-top: -66px;
+    height: 66px;
+    visibility: hidden;
+    z-index: -1;
+}
+
+.cms-modules-copy {
+    font-size: 16px;
+}
