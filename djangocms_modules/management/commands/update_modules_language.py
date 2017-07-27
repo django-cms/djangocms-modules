@@ -16,6 +16,6 @@ class Command(BaseCommand):
 
         for category in categories.iterator():
             count += 1
-            category.modules.update(language=language)
+            category.modules.cmsplugin_set.update(language=language)
 
         self.stdout.write('Successfully updated "%d" module categories.' % count)
