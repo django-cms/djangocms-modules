@@ -71,8 +71,12 @@ export function overridePlugin() {
                 url: url,
                 title: name
             });
-            modal.on('cms.modal.closed', function removePlaceholder() {
-                $('.cms-add-plugin-placeholder').remove();
+            CMS.API.Helpers.removeEventListener('modal-closed.add-module');
+            CMS.API.Helpers.addEventListener('modal-closed.add-module', (e, { instance }) => {
+                if (instance !== modal) {
+                    return;
+                }
+                Plugin._removeAddPluginPlaceholder();
             });
         }
     };
