@@ -76,14 +76,14 @@ class CreateModuleForm(NewModuleForm):
 
 
 class AddModuleForm(forms.Form):
-    language = forms.ChoiceField(
-        choices=settings.LANGUAGES,
-        required=True,
-        widget=forms.HiddenInput(),
-    )
     target_plugin = forms.ModelChoiceField(
         CMSPlugin.objects.all(),
         required=False,
+        widget=forms.HiddenInput(),
+    )
+    target_language = forms.ChoiceField(
+        choices=settings.LANGUAGES,
+        required=True,
         widget=forms.HiddenInput(),
     )
     target_placeholder = forms.ModelChoiceField(

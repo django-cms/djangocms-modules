@@ -34,7 +34,7 @@ export function overridePlugin() {
 
     Plugin.prototype.addModule = function(url, name, parent) {
         var params = {
-            language: this.options.plugin_language,
+            target_language: CMS.config.request.language
         };
 
         if (parent) {
