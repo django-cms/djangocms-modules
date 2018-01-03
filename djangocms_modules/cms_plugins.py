@@ -10,7 +10,7 @@ from django.http import HttpResponseForbidden, HttpResponseBadRequest, HttpRespo
 from django.shortcuts import render, get_object_or_404
 from django.utils.encoding import force_text
 from django.utils.http import urlencode
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import get_language_from_request, ugettext_lazy as _
 from django.views.generic import ListView
 
 from cms import operations
@@ -18,7 +18,6 @@ from cms.exceptions import PluginLimitReached
 from cms.models import CMSPlugin
 from cms.plugin_base import CMSPluginBase, PluginMenuItem
 from cms.plugin_pool import plugin_pool
-from cms.utils import get_language_from_request
 from cms.utils.plugins import (
     copy_plugins_to_placeholder,
     get_bound_plugins,
@@ -77,7 +76,7 @@ class Module(CMSPluginBase):
             return
 
         data = {
-            'language': get_language_from_request(request),
+            'language': get_language_from_request(request, check_path=True),
             'plugin': plugin.pk,
         }
         endpoint = admin_reverse('cms_create_module') + '?' + urlencode(data)
@@ -95,7 +94,7 @@ class Module(CMSPluginBase):
     @classmethod
     def get_extra_placeholder_menu_items(cls, request, placeholder):
         data = {
-            'language': get_language_from_request(request),
+            'language': get_language_from_request(request, check_path=True),
             'placeholder': placeholder.pk,
         }
         endpoint = admin_reverse('cms_create_module') + '?' + urlencode(data)
@@ -204,7 +203,7 @@ class Module(CMSPluginBase):
             }
             return render(request, 'djangocms_modules/add_module.html', context)
 
-        language = form.cleaned_data['language']
+        language = form.cleaned_data['target_language']
         target_placeholder = form.cleaned_data.get('target_placeholder')
 
         if target_placeholder:
@@ -233,7 +232,6 @@ class Module(CMSPluginBase):
         except PluginLimitReached as er:
             return HttpResponseBadRequest(er)
 
-        language = form.cleaned_data['language']
         tree_order = target_placeholder.get_plugin_tree_order(
             language=language,
             parent_id=target_plugin,
