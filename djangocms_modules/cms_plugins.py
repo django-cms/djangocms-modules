@@ -5,7 +5,7 @@ import json
 from django.conf import settings
 from django.core.exceptions import PermissionDenied
 from django.conf.urls import url
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.http import HttpResponseForbidden, HttpResponseBadRequest, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.utils.encoding import force_text

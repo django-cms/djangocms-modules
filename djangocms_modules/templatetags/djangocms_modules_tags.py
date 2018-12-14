@@ -10,13 +10,13 @@ from ..models import Category
 register = template.Library()
 
 
-@register.assignment_tag(takes_context=False)
+@register.simple_tag(takes_context=False)
 def get_default_language():
     # le sigh...
     return settings.LANGUAGE_CODE
 
 
-@register.assignment_tag(takes_context=False)
+@register.simple_tag(takes_context=False)
 def get_module_categories():
     return Category.objects.order_by('name')
 
@@ -26,6 +26,6 @@ def get_module_add_url(module_):
     return admin_reverse('cms_add_module', args=[module_.pk])
 
 
-@register.assignment_tag(takes_context=False)
+@register.simple_tag(takes_context=False)
 def get_module_url(module_):
     return admin_reverse('cms_modules_list') + '#cms-plugin-{}'.format(module_.pk)

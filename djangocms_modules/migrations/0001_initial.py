@@ -27,9 +27,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ModulePlugin',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, related_name='djangocms_modules_moduleplugin', auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin')),
+                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, related_name='djangocms_modules_moduleplugin', auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin', on_delete=models.CASCADE)),
                 ('module_name', models.CharField(max_length=120, verbose_name='name')),
-                ('module_category', models.ForeignKey(verbose_name='category', to='djangocms_modules.Category')),
+                ('module_category', models.ForeignKey(verbose_name='category', to='djangocms_modules.Category', on_delete=models.CASCADE)),
             ],
             options={
                 'abstract': False,
