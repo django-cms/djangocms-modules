@@ -31,6 +31,7 @@ file for additional dependencies:
 
 * Python 2.7, 3.4 or higher
 * Django 1.11 or higher
+* django CMS 3.5 or higher
 
 
 Installation

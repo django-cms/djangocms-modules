@@ -6,7 +6,7 @@ from djangocms_modules import __version__
 
 
 REQUIREMENTS = [
-    'django-cms>=3.4.5',
+    'django-cms>=3.5.0',
 ]
 
 
