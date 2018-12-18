@@ -1,8 +1,13 @@
-import os
-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from setuptools import setup, find_packages
 
-import djangocms_modules
+from djangocms_modules import __version__
+
+
+REQUIREMENTS = [
+    'django-cms>=3.5.0',
+]
 
 
 CLASSIFIERS = [
@@ -17,16 +22,18 @@ CLASSIFIERS = [
 ]
 
 setup(
+    name='djangocms-modules',
+    version=__version__,
     author='Divio AG',
     author_email='info@divio.ch',
-    name='djangocms-modules',
-    version=djangocms_modules.__version__,
-    description='Adds copy/paste capabilities to groups of plugins',
-    long_description=open(os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
-    url='http://www.django-cms.org/',
-    license='BSD License',
-    platforms=['OS Independent'],
-    classifiers=CLASSIFIERS,
-    packages=find_packages(),
+    url='https://github.com/divio/djangocms-modules',
+    license='BSD',
+    description=('Adds copy/paste capabilities to groups of plugins'),
+    long_description=open('README.rst').read(),
+    packages=find_packages(exclude=['tests']),
     include_package_data=True,
+    zip_safe=False,
+    install_requires=REQUIREMENTS,
+    classifiers=CLASSIFIERS,
+    test_suite='tests.settings.run',
 )

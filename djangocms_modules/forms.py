@@ -56,7 +56,7 @@ class CreateModuleForm(NewModuleForm):
         formfield = self.fields['category']
         formfield.widget = RelatedFieldWidgetWrapper(
             formfield.widget,
-            dbfield.rel,
+            dbfield.rel if hasattr(dbfield, 'rel') else dbfield.remote_field,
             admin_site=admin.site,
             can_add_related=related_modeladmin.has_add_permission(request),
             can_change_related=related_modeladmin.has_change_permission(request),

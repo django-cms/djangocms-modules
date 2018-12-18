@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.conf import settings
-from django.core.urlresolvers import resolve, Resolver404
+from django.urls import resolve, Resolver404
 from django.db import models
 from django.dispatch import receiver
 from django.utils.functional import cached_property
@@ -121,7 +121,8 @@ class ModulePlugin(CMSPlugin):
     )
     module_category = models.ForeignKey(
         to=Category,
-        verbose_name=_('category')
+        verbose_name=_('category'),
+        on_delete=models.CASCADE,
     )
 
     def __str__(self):
