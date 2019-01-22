@@ -2,9 +2,9 @@
 from __future__ import unicode_literals
 
 from django.conf import settings
-from django.urls import resolve, Resolver404
 from django.db import models
 from django.dispatch import receiver
+from django.urls import Resolver404, resolve
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 
@@ -12,8 +12,8 @@ from cms import operations
 from cms.models import CMSPlugin, Placeholder
 from cms.models.fields import PlaceholderField
 from cms.signals import pre_placeholder_operation
-from cms.utils.plugins import get_bound_plugins
 from cms.utils.compat.dj import python_2_unicode_compatible
+from cms.utils.plugins import get_bound_plugins
 
 
 def _get_placeholder_slot(category):
@@ -64,15 +64,15 @@ def sync_module_plugin(sender, **kwargs):
 @python_2_unicode_compatible
 class Category(models.Model):
     name = models.CharField(
-        verbose_name=_('name'),
+        verbose_name=_('Name'),
         max_length=120,
         unique=True,
     )
     modules = PlaceholderField(slotname=_get_placeholder_slot)
 
     class Meta:
-        verbose_name = _('category')
-        verbose_name_plural = _('categories')
+        verbose_name = _('Category')
+        verbose_name_plural = _('Categories')
 
     def __str__(self):
         return self.name
@@ -116,12 +116,12 @@ class ModulesPlaceholder(Placeholder):
 @python_2_unicode_compatible
 class ModulePlugin(CMSPlugin):
     module_name = models.CharField(
-        verbose_name=_('name'),
+        verbose_name=_('Name'),
         max_length=120,
     )
     module_category = models.ForeignKey(
         to=Category,
-        verbose_name=_('category'),
+        verbose_name=_('Category'),
         on_delete=models.CASCADE,
     )
 

@@ -1,7 +1,11 @@
+# -*- coding: utf-8 -*-
 from django import forms
 from django.conf import settings
 from django.contrib import admin
-from django.contrib.admin.widgets import AdminTextInputWidget, RelatedFieldWidgetWrapper
+from django.contrib.admin.widgets import (
+    AdminTextInputWidget, RelatedFieldWidgetWrapper,
+)
+from django.utils.translation import ugettext_lazy as _
 
 from cms.models import CMSPlugin, Placeholder
 
@@ -101,10 +105,10 @@ class AddModuleForm(forms.Form):
         placeholder = self.cleaned_data.get('target_placeholder')
 
         if not plugin and not placeholder:
-            message = 'A plugin or placeholder is required to apply a module'
+            message = _('A plugin or placeholder is required to apply a module.')
             raise forms.ValidationError(message)
 
         if plugin and placeholder:
-            message = 'A module can only be applied to a plugin or placeholder, not both.'
+            message = _('A module can only be applied to a plugin or placeholder, not both.')
             raise forms.ValidationError(message)
         return self.cleaned_data

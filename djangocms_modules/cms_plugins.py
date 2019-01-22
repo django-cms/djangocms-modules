@@ -3,14 +3,17 @@ import copy
 import json
 
 from django.conf import settings
-from django.core.exceptions import PermissionDenied
 from django.conf.urls import url
+from django.core.exceptions import PermissionDenied
+from django.http import (
+    HttpResponse, HttpResponseBadRequest, HttpResponseForbidden,
+)
+from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
-from django.http import HttpResponseForbidden, HttpResponseBadRequest, HttpResponse
-from django.shortcuts import render, get_object_or_404
 from django.utils.encoding import force_text
 from django.utils.http import urlencode
-from django.utils.translation import get_language_from_request, ugettext_lazy as _
+from django.utils.translation import get_language_from_request
+from django.utils.translation import ugettext_lazy as _
 from django.views.generic import ListView
 
 from cms import operations
@@ -19,9 +22,7 @@ from cms.models import CMSPlugin
 from cms.plugin_base import CMSPluginBase, PluginMenuItem
 from cms.plugin_pool import plugin_pool
 from cms.utils.plugins import (
-    copy_plugins_to_placeholder,
-    get_bound_plugins,
-    has_reached_plugin_limit,
+    copy_plugins_to_placeholder, get_bound_plugins, has_reached_plugin_limit,
     reorder_plugins,
 )
 from cms.utils.urlutils import admin_reverse
@@ -51,7 +52,7 @@ class Module(CMSPluginBase):
     name = _('Module')
     allow_children = True
     model = ModulePlugin
-    render_template = "djangocms_modules/render_module.html"
+    render_template = 'djangocms_modules/render_module.html'
     confirmation_cookie_name = 'modules_disable_confirmation'
     readonly_fields = ['module_category']
     # These are executed by the djangocms-history app
@@ -82,7 +83,7 @@ class Module(CMSPluginBase):
         endpoint = admin_reverse('cms_create_module') + '?' + urlencode(data)
         return [
             PluginMenuItem(
-                _("Create Module"),
+                _('Create module'),
                 endpoint,
                 action='modal',
                 attributes={
@@ -100,7 +101,7 @@ class Module(CMSPluginBase):
         endpoint = admin_reverse('cms_create_module') + '?' + urlencode(data)
         return [
             PluginMenuItem(
-                _("Create Module"),
+                _('Create module'),
                 endpoint,
                 action='modal',
                 attributes={
@@ -213,7 +214,9 @@ class Module(CMSPluginBase):
             target_placeholder = target_plugin.placeholder
 
         if not target_placeholder.has_add_plugin_permission(request.user, module_plugin.plugin_type):
-            return HttpResponseForbidden(force_text(_('You do not have permission to add a plugin')))
+            return HttpResponseForbidden(
+                force_text(_('You do not have permission to add a plugin.'))
+            )
 
         pl_admin = target_placeholder._get_attached_admin()
 

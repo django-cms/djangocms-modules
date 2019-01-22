@@ -1,7 +1,8 @@
+# -*- coding: utf-8 -*-
 import json
 
 from django.apps import apps
-from django.urls import resolve, Resolver404
+from django.urls import Resolver404, resolve
 
 from cms import operations
 from cms.models import CMSPlugin
@@ -65,10 +66,10 @@ if apps.is_installed('djangocms_history'):
 
     signals.post_operation_undo.connect(
         sync_module_category,
-        dispatch_uid="undo_sync_module_category",
+        dispatch_uid='undo_sync_module_category',
     )
 
     signals.post_operation_redo.connect(
         sync_module_category,
-        dispatch_uid="redo_sync_module_category",
+        dispatch_uid='redo_sync_module_category',
     )

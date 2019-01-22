@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.apps import AppConfig
@@ -9,4 +10,4 @@ class ModulesConfig(AppConfig):
     verbose_name = _('django CMS Modules')
 
     def ready(self):
-        import djangocms_modules.handlers #noqa
+        import djangocms_modules.handlers  # noqa
