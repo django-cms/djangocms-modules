@@ -80,8 +80,6 @@ msgstr "Add"
 #: djangocms_modules/templates/djangocms_modules/create_module.html:8
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
-msgstr[0] "Please correct the error below."
-msgstr[1] "Please correct the errors below."
 
 #: djangocms_modules/templates/djangocms_modules/create_module.html:31
 msgid "Create"
