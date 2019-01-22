@@ -83,7 +83,7 @@ class Module(CMSPluginBase):
         endpoint = admin_reverse('cms_create_module') + '?' + urlencode(data)
         return [
             PluginMenuItem(
-                _("Create Module"),
+                _("Create module"),
                 endpoint,
                 action='modal',
                 attributes={
@@ -101,7 +101,7 @@ class Module(CMSPluginBase):
         endpoint = admin_reverse('cms_create_module') + '?' + urlencode(data)
         return [
             PluginMenuItem(
-                _("Create Module"),
+                _("Create module"),
                 endpoint,
                 action='modal',
                 attributes={
@@ -214,7 +214,9 @@ class Module(CMSPluginBase):
             target_placeholder = target_plugin.placeholder
 
         if not target_placeholder.has_add_plugin_permission(request.user, module_plugin.plugin_type):
-            return HttpResponseForbidden(force_text(_('You do not have permission to add a plugin')))
+            return HttpResponseForbidden(
+                force_text(_('You do not have permission to add a plugin.'))
+            )
 
         pl_admin = target_placeholder._get_attached_admin()
 

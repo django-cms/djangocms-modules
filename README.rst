@@ -4,7 +4,7 @@ django CMS Modules
 
 |pypi| |build| |coverage|
 
-**django CMS Modules** Adds copy/paste capabilities to groups of plugins.
+**django CMS Modules** adds copy/paste capabilities to groups of plugins.
 
 This addon is compatible with `Divio Cloud <http://divio.com>`_ and is also available on the
 `django CMS Marketplace <https://marketplace.django-cms.org/en/addons/browse/djangocms-modules/>`_

@@ -64,15 +64,15 @@ def sync_module_plugin(sender, **kwargs):
 @python_2_unicode_compatible
 class Category(models.Model):
     name = models.CharField(
-        verbose_name=_('name'),
+        verbose_name=_('Name'),
         max_length=120,
         unique=True,
     )
     modules = PlaceholderField(slotname=_get_placeholder_slot)
 
     class Meta:
-        verbose_name = _('category')
-        verbose_name_plural = _('categories')
+        verbose_name = _('Category')
+        verbose_name_plural = _('Categories')
 
     def __str__(self):
         return self.name
@@ -116,12 +116,12 @@ class ModulesPlaceholder(Placeholder):
 @python_2_unicode_compatible
 class ModulePlugin(CMSPlugin):
     module_name = models.CharField(
-        verbose_name=_('name'),
+        verbose_name=_('Name'),
         max_length=120,
     )
     module_category = models.ForeignKey(
         to=Category,
-        verbose_name=_('category'),
+        verbose_name=_('Category'),
         on_delete=models.CASCADE,
     )
 
