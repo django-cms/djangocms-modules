@@ -2,20 +2,23 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
+# Translators:
+# Angelo Dini <angelo.dini@divio.ch>, 2019
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-22 11:06+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2019-01-22 09:25+0000\n"
+"Last-Translator: Angelo Dini <angelo.dini@divio.ch>, 2019\n"
+"Language-Team: German (https://www.transifex.com/divio/teams/58664/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: djangocms_modules/apps.py:10
@@ -24,21 +27,21 @@ msgstr "django CMS Modules"
 
 #: djangocms_modules/cms_plugins.py:52
 msgid "Module"
-msgstr "Module"
+msgstr "Modul"
 
 #: djangocms_modules/cms_plugins.py:86 djangocms_modules/cms_plugins.py:104
 #: djangocms_modules/templates/djangocms_modules/create_module.html:5
 msgid "Create module"
-msgstr "Create module"
+msgstr "Modul erstellen"
 
 #: djangocms_modules/cms_plugins.py:218
 msgid "You do not have permission to add a plugin."
-msgstr "You do not have permission to add a plugin."
+msgstr "Sie haben keine Rechte um ein Plugin hinzuzufügen."
 
 #: djangocms_modules/cms_toolbars.py:55
 #: djangocms_modules/templates/djangocms_modules/base.html:4
 msgid "Modules"
-msgstr "Modules"
+msgstr "Module"
 
 #: djangocms_modules/models.py:67 djangocms_modules/models.py:119
 msgid "Name"
@@ -46,47 +49,47 @@ msgstr "Name"
 
 #: djangocms_modules/models.py:74 djangocms_modules/models.py:124
 msgid "Category"
-msgstr "Category"
+msgstr "Kategorie"
 
 #: djangocms_modules/models.py:75
 msgid "Categories"
-msgstr "Categories"
+msgstr "Kategorien"
 
 #: djangocms_modules/templates/cms/toolbar/dragitem_menu.html:5
 msgid "Modules:"
-msgstr "Modules:"
+msgstr "Module:"
 
 #: djangocms_modules/templates/cms/toolbar/dragitem_menu.html:13
 msgid "Available plugins"
-msgstr "Available plugins"
+msgstr "Verfügbare Plugins"
 
 #: djangocms_modules/templates/djangocms_modules/add_module.html:5
 msgid "Add module"
-msgstr "Add module"
+msgstr "Modul hinzufügen"
 
 #: djangocms_modules/templates/djangocms_modules/add_module.html:15
 #, python-format
 msgid ""
-"Are you sure you want to add module <a href=\"%(module_link)s\">"
-"%(module_name)s</a>?"
+"Are you sure you want to add module <a "
+"href=\"%(module_link)s\">%(module_name)s</a>?"
 msgstr ""
-"Are you sure you want to add module <a href=\"%(module_link)s\">"
-"%(module_name)s</a>?"
+"Soll das folgende Modul wirklich hinzugefügt werden: <a "
+"href=\"%(module_link)s\">%(module_name)s</a>?"
 
 #: djangocms_modules/templates/djangocms_modules/add_module.html:29
 msgid "Add"
-msgstr "Add"
+msgstr "Hinzufügen"
 
 #: djangocms_modules/templates/djangocms_modules/create_module.html:8
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
-msgstr[0] "Please correct the error below."
-msgstr[1] "Please correct the errors below."
+msgstr[0] "Bitte korrigieren Sie den unten aufgeführten Fehler."
+msgstr[1] "Bitte korrigieren Sie die unten aufgeführten Fehler."
 
 #: djangocms_modules/templates/djangocms_modules/create_module.html:31
 msgid "Create"
-msgstr "Create"
+msgstr "Erstellen"
 
 #: djangocms_modules/templates/djangocms_modules/render_module.html:7
 msgid "Copy"
-msgstr "Copy"
+msgstr "Kopieren"
