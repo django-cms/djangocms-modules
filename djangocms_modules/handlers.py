@@ -66,10 +66,10 @@ if apps.is_installed('djangocms_history'):
 
     signals.post_operation_undo.connect(
         sync_module_category,
-        dispatch_uid="undo_sync_module_category",
+        dispatch_uid='undo_sync_module_category',
     )
 
     signals.post_operation_redo.connect(
         sync_module_category,
-        dispatch_uid="redo_sync_module_category",
+        dispatch_uid='redo_sync_module_category',
     )

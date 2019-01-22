@@ -52,7 +52,7 @@ class Module(CMSPluginBase):
     name = _('Module')
     allow_children = True
     model = ModulePlugin
-    render_template = "djangocms_modules/render_module.html"
+    render_template = 'djangocms_modules/render_module.html'
     confirmation_cookie_name = 'modules_disable_confirmation'
     readonly_fields = ['module_category']
     # These are executed by the djangocms-history app
@@ -83,7 +83,7 @@ class Module(CMSPluginBase):
         endpoint = admin_reverse('cms_create_module') + '?' + urlencode(data)
         return [
             PluginMenuItem(
-                _("Create module"),
+                _('Create module'),
                 endpoint,
                 action='modal',
                 attributes={
@@ -101,7 +101,7 @@ class Module(CMSPluginBase):
         endpoint = admin_reverse('cms_create_module') + '?' + urlencode(data)
         return [
             PluginMenuItem(
-                _("Create module"),
+                _('Create module'),
                 endpoint,
                 action='modal',
                 attributes={
