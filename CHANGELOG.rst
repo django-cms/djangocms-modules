@@ -9,6 +9,7 @@ Changelog
 * Extended test matrix
 * Added isort and adapted imports
 * Adapted code base to align with other supported addons
+* Added translations
 
 
 0.1.0 (2018-12-20)
