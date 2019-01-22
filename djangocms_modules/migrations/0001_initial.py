@@ -2,8 +2,10 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-import djangocms_modules.models
+
 import cms.models.fields
+
+import djangocms_modules.models
 
 
 class Migration(migrations.Migration):

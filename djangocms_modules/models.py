@@ -2,9 +2,9 @@
 from __future__ import unicode_literals
 
 from django.conf import settings
-from django.urls import resolve, Resolver404
 from django.db import models
 from django.dispatch import receiver
+from django.urls import Resolver404, resolve
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 
@@ -12,8 +12,8 @@ from cms import operations
 from cms.models import CMSPlugin, Placeholder
 from cms.models.fields import PlaceholderField
 from cms.signals import pre_placeholder_operation
-from cms.utils.plugins import get_bound_plugins
 from cms.utils.compat.dj import python_2_unicode_compatible
+from cms.utils.plugins import get_bound_plugins
 
 
 def _get_placeholder_slot(category):

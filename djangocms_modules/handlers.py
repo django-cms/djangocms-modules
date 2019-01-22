@@ -2,7 +2,7 @@
 import json
 
 from django.apps import apps
-from django.urls import resolve, Resolver404
+from django.urls import Resolver404, resolve
 
 from cms import operations
 from cms.models import CMSPlugin
