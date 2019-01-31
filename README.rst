@@ -44,8 +44,13 @@ Installation
 For a manual install:
 
 * run ``pip install djangocms-modules``
-* add ``djangocms_modules`` to your ``INSTALLED_APPS``
+* add ``djangocms_modules`` to your ``INSTALLED_APPS`` **before** ``cms``
 * run ``python manage.py migrate djangocms_modules``
+
+In addition, djangocms-modules requires your base template to render the
+*Modules* section. By default we assume it is ``base.html``. If you use
+a different template structure please adapt `djangocms_modules/base.html <https://github.com/divio/djangocms-modules/blob/master/djangocms_modules/templates/djangocms_modules/base.html#L1>`_
+accordingly.
 
 
 Running Tests
