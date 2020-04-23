@@ -2,4 +2,3 @@
 django-app-helper
 tox
 coverage
-pyflakes>=2.1
