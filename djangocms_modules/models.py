@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from six import python_2_unicode_compatible
-
 from django.conf import settings
 from django.db import models
 from django.dispatch import receiver
@@ -15,6 +13,8 @@ from cms.models import CMSPlugin, Placeholder
 from cms.models.fields import PlaceholderField
 from cms.signals import pre_placeholder_operation
 from cms.utils.plugins import get_bound_plugins
+
+from six import python_2_unicode_compatible
 
 
 def _get_placeholder_slot(category):
