@@ -12,8 +12,9 @@ from cms import operations
 from cms.models import CMSPlugin, Placeholder
 from cms.models.fields import PlaceholderField
 from cms.signals import pre_placeholder_operation
-from cms.utils.compat.dj import python_2_unicode_compatible
 from cms.utils.plugins import get_bound_plugins
+
+from six import python_2_unicode_compatible
 
 
 def _get_placeholder_slot(category):
