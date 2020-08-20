@@ -1,19 +1,17 @@
-# -*- coding: utf-8 -*-
 import copy
 import json
 
 from django.conf import settings
-from django.conf.urls import url
 from django.core.exceptions import PermissionDenied
 from django.http import (
     HttpResponse, HttpResponseBadRequest, HttpResponseForbidden,
 )
 from django.shortcuts import get_object_or_404, render
-from django.urls import reverse
+from django.urls import re_path, reverse
 from django.utils.encoding import force_text
 from django.utils.http import urlencode
 from django.utils.translation import get_language_from_request
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.views.generic import ListView
 
 from cms import operations
@@ -65,9 +63,9 @@ class Module(CMSPluginBase):
 
     def get_plugin_urls(self):
         urlpatterns = [
-            url(r'^create-module/$', self.create_module_view, name='cms_create_module'),
-            url(r'^add-module/(?P<module_id>[0-9]+)/$', self.add_module_view, name='cms_add_module'),
-            url(r'^modules/$', self.modules_list_view, name='cms_modules_list'),
+            re_path(r'^create-module/$', self.create_module_view, name='cms_create_module'),
+            re_path(r'^add-module/(?P<module_id>[0-9]+)/$', self.add_module_view, name='cms_add_module'),
+            re_path(r'^modules/$', self.modules_list_view, name='cms_modules_list'),
         ]
         return urlpatterns
 
