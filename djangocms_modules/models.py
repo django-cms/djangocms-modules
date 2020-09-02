@@ -1,20 +1,15 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.conf import settings
 from django.db import models
 from django.dispatch import receiver
 from django.urls import Resolver404, resolve
 from django.utils.functional import cached_property
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from cms import operations
 from cms.models import CMSPlugin, Placeholder
 from cms.models.fields import PlaceholderField
 from cms.signals import pre_placeholder_operation
 from cms.utils.plugins import get_bound_plugins
-
-from six import python_2_unicode_compatible
 
 
 def _get_placeholder_slot(category):
@@ -62,7 +57,6 @@ def sync_module_plugin(sender, **kwargs):
          .update(module_category=new_category))
 
 
-@python_2_unicode_compatible
 class Category(models.Model):
     name = models.CharField(
         verbose_name=_('Name'),
@@ -114,7 +108,6 @@ class ModulesPlaceholder(Placeholder):
         return self.category.name
 
 
-@python_2_unicode_compatible
 class ModulePlugin(CMSPlugin):
     module_name = models.CharField(
         verbose_name=_('Name'),
