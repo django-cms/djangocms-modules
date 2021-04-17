@@ -10,10 +10,7 @@ from .models import Category, ModulePlugin
 
 
 def sync_module_category(sender, **kwargs):
-    from djangocms_history.actions import (
-        MOVE_IN_PLUGIN,
-        MOVE_OUT_PLUGIN,
-    )
+    from djangocms_history.actions import MOVE_IN_PLUGIN, MOVE_OUT_PLUGIN
 
     operation = kwargs['operation']
     actions = kwargs['actions']
