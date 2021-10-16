@@ -6,27 +6,34 @@ django CMS Modules
 
 **django CMS Modules** adds copy/paste capabilities to groups of plugins.
 
-This addon is compatible with `Divio Cloud <http://divio.com>`_ and is also available on the
-`django CMS Marketplace <https://marketplace.django-cms.org/en/addons/browse/djangocms-modules/>`_
-for easy installation.
+.. note:: 
+        
+        This project is endorsed by the `django CMS Association <https://www.django-cms.org/en/about-us/>`_.
+        That means that it is officially accepted by the dCA as being in line with our roadmap vision and development/plugin policy. 
+        Join us on `Slack <https://www.django-cms.org/slack/>`_.
 
 .. image:: preview.gif
 
+*******************************************
+Contribute to this project and win rewards
+*******************************************
 
-Contributing
-============
+Because this is a an open-source project, we welcome everyone to
+`get involved in the project <https://www.django-cms.org/en/contribute/>`_ and
+`receive a reward <https://www.django-cms.org/en/bounty-program/>`_ for their contribution. 
+Become part of a fantastic community and help us make django CMS the best CMS in the world.   
 
-This is a an open-source project. We'll be delighted to receive your
+We'll be delighted to receive your
 feedback in the form of issues and pull requests. Before submitting your
 pull request, please review our `contribution guidelines
 <http://docs.django-cms.org/en/latest/contributing/index.html>`_.
 
 We're grateful to all contributors who have helped create and maintain this package.
-Contributors are listed at the `contributors <https://github.com/divio/djangocms-modules/graphs/contributors>`_
+Contributors are listed at the `contributors <https://github.com/divio/djangocms-text-ckeditor/graphs/contributors>`_
 section.
 
 One of the easiest contributions you can make is helping to translate this addon on
-`Transifex <https://www.transifex.com/projects/p/djangocms-modules/>`_.
+`Transifex <https://www.transifex.com/projects/p/djangocms-text-ckeditor/>`_.
 
 
 Documentation
