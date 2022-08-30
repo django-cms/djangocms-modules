@@ -6,6 +6,7 @@ from djangocms_modules import __version__
 
 REQUIREMENTS = [
     'django-cms>=3.7',
+    'djangocms-history',
     'django-treebeard>=4.3,<4.5',
 ]
 
@@ -22,7 +23,6 @@ CLASSIFIERS = [
     'Programming Language :: Python :: 3.9',
     'Programming Language :: Python :: 3.10',
     'Framework :: Django',
-    'Framework :: Django :: 2.2',
     'Framework :: Django :: 3.2',
     'Framework :: Django :: 4.0',
     'Framework :: Django CMS',
@@ -45,10 +45,11 @@ setup(
     license='BSD-3-Clause',
     description='Adds copy/paste capabilities to groups of plugins',
     long_description=open('README.rst').read(),
-    packages=find_packages(),
+    packages=find_packages(exclude=['tests']),
     include_package_data=True,
     zip_safe=False,
     install_requires=REQUIREMENTS,
     classifiers=CLASSIFIERS,
+    python_requires='>=3.8',
     test_suite='tests.settings.run',
 )

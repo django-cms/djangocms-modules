@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class ModulesConfig(AppConfig):
+    default_auto_field = 'django.db.models.AutoField'
     name = 'djangocms_modules'
     verbose_name = _('django CMS Modules')
 

@@ -2,7 +2,7 @@
 django CMS Modules
 ==================
 
-|pypi| |build| |coverage|
+|pypi|  |coverage| |python| |django| |djangocms|
 
 **django CMS Modules** adds copy/paste capabilities to groups of plugins.
 
@@ -32,17 +32,8 @@ We're grateful to all contributors who have helped create and maintain this pack
 Contributors are listed at the `contributors <https://github.com/django-cms/djangocms-modules/graphs/contributors>`_
 section.
 
-Documentation
-=============
-
-See ``REQUIREMENTS`` in the `setup.py <https://github.com/divio/djangocms-modules/blob/master/setup.py>`_
-file for additional dependencies:
-
-|python| |django| |djangocms|
-
-
 Installation
-------------
+============
 
 For a manual install:
 
@@ -69,14 +60,13 @@ You can run tests by executing::
 
 .. |pypi| image:: https://badge.fury.io/py/djangocms-modules.svg
     :target: http://badge.fury.io/py/djangocms-modules
-.. |build| image:: https://travis-ci.org/divio/djangocms-modules.svg?branch=master
-    :target: https://travis-ci.org/divio/djangocms-modules
-.. |coverage| image:: https://codecov.io/gh/divio/djangocms-modules/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/divio/djangocms-modules
 
-.. |python| image:: https://img.shields.io/badge/python-3.5+-blue.svg
+.. |coverage| image:: https://codecov.io/gh/django-cms/djangocms-modules/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/django-cms/djangocms-modules
+
+.. |python| image:: https://img.shields.io/badge/python-3.9+-blue.svg
     :target: https://pypi.org/project/djangocms-modules/
-.. |django| image:: https://img.shields.io/badge/django-2.2,%203.0,%203.1-blue.svg
+.. |django| image:: https://img.shields.io/badge/django-3.2,%204.0-blue.svg
     :target: https://www.djangoproject.com/
-.. |djangocms| image:: https://img.shields.io/badge/django%20CMS-3.7%2B-blue.svg
+.. |djangocms| image:: https://img.shields.io/badge/django%20CMS-3.9%2B-blue.svg
     :target: https://www.django-cms.org/
