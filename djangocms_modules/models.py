@@ -13,7 +13,7 @@ from cms.utils.plugins import get_bound_plugins
 
 
 def _get_placeholder_slot(category):
-    return 'module-category-{}'.format(category.pk)
+    return f'module-category-{category.pk}'
 
 
 @receiver(pre_placeholder_operation)
