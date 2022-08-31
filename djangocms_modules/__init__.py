@@ -1,3 +1,1 @@
-__version__ = '1.0.0'
-
-default_app_config = 'djangocms_modules.apps.ModulesConfig'
+__version__ = '2.0.0'
