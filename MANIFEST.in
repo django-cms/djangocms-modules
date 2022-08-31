@@ -1,6 +1,6 @@
 include LICENSE
 include README.rst
+recursive-exclude * *.py[co]
 recursive-include djangocms_modules/static *
 recursive-include djangocms_modules/templates *
-recursive-exclude * *.py[co]
-recursive-exclude * *.scssc
+recursive-include tests *.py

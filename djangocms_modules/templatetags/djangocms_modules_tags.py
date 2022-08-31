@@ -27,4 +27,4 @@ def get_module_add_url(module_):
 
 @register.simple_tag(takes_context=False)
 def get_module_url(module_):
-    return admin_reverse('cms_modules_list') + '#cms-plugin-{}'.format(module_.pk)
+    return admin_reverse('cms_modules_list') + f'#cms-plugin-{module_.pk}'

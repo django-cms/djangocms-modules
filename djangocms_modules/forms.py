@@ -1,9 +1,7 @@
 from django import forms
 from django.conf import settings
 from django.contrib import admin
-from django.contrib.admin.widgets import (
-    AdminTextInputWidget, RelatedFieldWidgetWrapper,
-)
+from django.contrib.admin.widgets import AdminTextInputWidget, RelatedFieldWidgetWrapper
 from django.utils.translation import gettext_lazy as _
 
 from cms.models import CMSPlugin, Placeholder

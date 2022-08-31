@@ -3,12 +3,10 @@ import json
 
 from django.conf import settings
 from django.core.exceptions import PermissionDenied
-from django.http import (
-    HttpResponse, HttpResponseBadRequest, HttpResponseForbidden,
-)
+from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
 from django.shortcuts import get_object_or_404, render
 from django.urls import re_path, reverse
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 from django.utils.http import urlencode
 from django.utils.translation import get_language_from_request
 from django.utils.translation import gettext_lazy as _
@@ -19,10 +17,7 @@ from cms.exceptions import PluginLimitReached
 from cms.models import CMSPlugin
 from cms.plugin_base import CMSPluginBase, PluginMenuItem
 from cms.plugin_pool import plugin_pool
-from cms.utils.plugins import (
-    copy_plugins_to_placeholder, get_bound_plugins, has_reached_plugin_limit,
-    reorder_plugins,
-)
+from cms.utils.plugins import copy_plugins_to_placeholder, get_bound_plugins, has_reached_plugin_limit, reorder_plugins
 from cms.utils.urlutils import admin_reverse
 
 from .forms import AddModuleForm, CreateModuleForm, NewModuleForm
@@ -213,7 +208,7 @@ class Module(CMSPluginBase):
 
         if not target_placeholder.has_add_plugin_permission(request.user, module_plugin.plugin_type):
             return HttpResponseForbidden(
-                force_text(_('You do not have permission to add a plugin.'))
+                force_str(_('You do not have permission to add a plugin.'))
             )
 
         pl_admin = target_placeholder._get_attached_admin()

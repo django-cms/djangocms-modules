@@ -3,6 +3,16 @@ Changelog
 =========
 
 
+2.0.0 (2022-08-30)
+==================
+
+* Added support for Django 3.2 & 4.0
+* Dropped support for Python < 3.8
+* Dropped support for Django < 3.2
+* Dropped support for django-cms < 3.10
+* Added pre-commit hooks
+
+
 1.0.0 (2020-09-02)
 ==================
 
