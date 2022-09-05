@@ -5,7 +5,7 @@ from django.conf import settings
 from django.core.exceptions import PermissionDenied
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
 from django.shortcuts import get_object_or_404, render
-from django.urls import re_path, reverse
+from django.urls import path, reverse
 from django.utils.encoding import force_str
 from django.utils.http import urlencode
 from django.utils.translation import get_language_from_request
@@ -58,9 +58,9 @@ class Module(CMSPluginBase):
 
     def get_plugin_urls(self):
         urlpatterns = [
-            re_path(r'^create-module/$', self.create_module_view, name='cms_create_module'),
-            re_path(r'^add-module/(?P<module_id>[0-9]+)/$', self.add_module_view, name='cms_add_module'),
-            re_path(r'^modules/$', self.modules_list_view, name='cms_modules_list'),
+            path('create-module/', self.create_module_view, name='cms_create_module'),
+            path('add-module/<int:module_id>/', self.add_module_view, name='cms_add_module'),
+            path('modules/', self.modules_list_view, name='cms_modules_list'),
         ]
         return urlpatterns
 
