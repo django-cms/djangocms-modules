@@ -66,7 +66,7 @@ You can run tests by executing::
 
 .. |python| image:: https://img.shields.io/badge/python-3.9+-blue.svg
     :target: https://pypi.org/project/djangocms-modules/
-.. |django| image:: https://img.shields.io/badge/django-3.2-4.2-blue.svg
+.. |django| image:: https://img.shields.io/badge/django-3.2--4.2-blue.svg
     :target: https://www.djangoproject.com/
 .. |djangocms| image:: https://img.shields.io/badge/django%20CMS-3.9%2B-blue.svg
     :target: https://www.django-cms.org/
