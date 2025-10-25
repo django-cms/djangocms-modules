@@ -58,21 +58,21 @@ You can run tests by executing::
     python setup.py test
 
 
-.. |PyPiVersion| image:: https://img.shields.io/pypi/v/djangocms-versioning.svg?style=flat-square
-    :target: https://pypi.python.org/pypi/djangocms-versioning
+.. |PyPiVersion| image:: https://img.shields.io/pypi/v/djangocms-modules.svg?style=flat-square
+    :target: https://pypi.python.org/pypi/djangocms-modules
     :alt: Latest PyPI version
 
 .. |coverage| image:: https://codecov.io/gh/django-cms/djangocms-modules/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/django-cms/djangocms-modules
 
-.. |PyVersion| image:: https://img.shields.io/pypi/pyversions/djangocms-versioning.svg?style=flat-square
-    :target: https://pypi.python.org/pypi/djangocms-versioning
+.. |PyVersion| image:: https://img.shields.io/pypi/pyversions/djangocms-modules.svg?style=flat-square
+    :target: https://pypi.python.org/pypi/djangocms-modules
     :alt: Python versions
 
-.. |DjVersion| image:: https://img.shields.io/pypi/frameworkversions/django/djangocms-versioning.svg?style=flat-square
-    :target: https://pypi.python.org/pypi/djangocms-versioning
+.. |DjVersion| image:: https://img.shields.io/pypi/frameworkversions/django/djangocms-modules.svg?style=flat-square
+    :target: https://pypi.python.org/pypi/djangocms-modules
     :alt: Django versions
 
-.. |CmsVersion| image:: https://img.shields.io/pypi/frameworkversions/django-cms/djangocms-versioning.svg?style=flat-square
-    :target: https://pypi.python.org/pypi/djangocms-versioning
+.. |CmsVersion| image:: https://img.shields.io/pypi/frameworkversions/django-cms/djangocms-modules.svg?style=flat-square
+    :target: https://pypi.python.org/pypi/djangocms-modules
     :alt: django CMS versions
