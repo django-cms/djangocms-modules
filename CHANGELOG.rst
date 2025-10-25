@@ -6,7 +6,7 @@ Changelog
 ==================
 
 * Updated trove classifiers
-* Added Python 3.9 to 3.13 support
+* Added Python 3.9 to 3.12 support
 
 2.0.0 (2022-08-30)
 ==================
