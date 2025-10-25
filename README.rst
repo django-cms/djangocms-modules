@@ -2,7 +2,7 @@
 django CMS Modules
 ==================
 
-|pypi|  |coverage| |python| |django| |djangocms|
+|PyPiVersion|  |coverage| |PyVersion| |DjVersion| |CmsVersion|
 
 **django CMS Modules** adds copy/paste capabilities to groups of plugins.
 
@@ -58,15 +58,21 @@ You can run tests by executing::
     python setup.py test
 
 
-.. |pypi| image:: https://badge.fury.io/py/djangocms-modules.svg
-    :target: http://badge.fury.io/py/djangocms-modules
+.. |PyPiVersion| image:: https://img.shields.io/pypi/v/djangocms-versioning.svg?style=flat-square
+    :target: https://pypi.python.org/pypi/djangocms-versioning
+    :alt: Latest PyPI version
 
 .. |coverage| image:: https://codecov.io/gh/django-cms/djangocms-modules/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/django-cms/djangocms-modules
 
-.. |python| image:: https://img.shields.io/badge/python-3.9+-blue.svg
-    :target: https://pypi.org/project/djangocms-modules/
-.. |django| image:: https://img.shields.io/badge/django-3.2--4.2-blue.svg
-    :target: https://www.djangoproject.com/
-.. |djangocms| image:: https://img.shields.io/badge/django%20CMS-3.9%2B-blue.svg
-    :target: https://www.django-cms.org/
+.. |PyVersion| image:: https://img.shields.io/pypi/pyversions/djangocms-versioning.svg?style=flat-square
+    :target: https://pypi.python.org/pypi/djangocms-versioning
+    :alt: Python versions
+
+.. |DjVersion| image:: https://img.shields.io/pypi/frameworkversions/django/djangocms-versioning.svg?style=flat-square
+    :target: https://pypi.python.org/pypi/djangocms-versioning
+    :alt: Django versions
+
+.. |CmsVersion| image:: https://img.shields.io/pypi/frameworkversions/django-cms/djangocms-versioning.svg?style=flat-square
+    :target: https://pypi.python.org/pypi/djangocms-versioning
+    :alt: django CMS versions
