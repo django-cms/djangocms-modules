@@ -2,6 +2,11 @@
 Changelog
 =========
 
+2.0.1 (2025-10-25)
+==================
+
+* Updated trove classifiers
+* Added Python 3.9 to 3.12 support
 
 2.0.0 (2022-08-30)
 ==================
